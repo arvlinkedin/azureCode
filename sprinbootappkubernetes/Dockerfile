@@ -16,7 +16,7 @@ RUN mvn clean package
 
 FROM openjdk:11-jre-slim
 
-ARG JAR_NAME="spring-boot-helloworld"
+ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
 WORKDIR /usr/src/app
 
