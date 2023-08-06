@@ -4,9 +4,9 @@
 
 FROM maven:3.6.3-jdk-11-slim AS build
 
-WORKDIR usr/src/app
+#WORKDIR usr/src/app
 
-COPY . ./
+#COPY .. ./
 
 RUN mvn clean package
 
@@ -18,7 +18,7 @@ FROM openjdk:11-jre-slim
 
 ARG JAR_NAME="spring-boot-helloworld"
 
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/target/${JAR_NAME}.jar ./app.jar
 
