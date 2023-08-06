@@ -19,5 +19,5 @@ jobs:
           username: arvcontainerregistry1
           password: aRHJnpnAY6SQCVJBiSjOLfNrrqSZ30tE47cT6zR1Pb+ACRC5VwAp
       - run: |
-          docker build . -t arvcontainerregistry1.azurecr.io/knowledgefactory:${{ github.sha }}
-          docker push arvcontainerregistry1.azurecr.io/knowledgefactory:${{ github.sha }}
+          docker build . -t arvcontainerregistry1.azurecr.io/appkube:${{ github.sha }}
+          docker push arvcontainerregistry1.azurecr.io/appkube:${{ github.sha }}
