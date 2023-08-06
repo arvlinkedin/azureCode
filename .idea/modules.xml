@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/azureCode.iml" filepath="$PROJECT_DIR$/.idea/azureCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sprinbootappkubernetes/sprinbootappkubernetes.iml" filepath="$PROJECT_DIR$/sprinbootappkubernetes/sprinbootappkubernetes.iml" />
+    </modules>
+  </component>
+</project>
