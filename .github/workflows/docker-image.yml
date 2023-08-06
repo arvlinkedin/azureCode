@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: azure/Dockerfile-login@v1
+      - uses: arvlinkedin/azureCode
         with:
           login-server: arvcontainerregistry1.azurecr.io
           username: arvcontainerregistry1
