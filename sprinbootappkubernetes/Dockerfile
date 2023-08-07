@@ -28,9 +28,6 @@ WORKDIR /usr/src/app
 
 RUN pwd
 
-RUN ls sprinbootappkubernetes/target/ -r -l
-
-#ADD sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
 
 COPY --from=build /usr/src/app/sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
 
