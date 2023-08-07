@@ -25,6 +25,8 @@ FROM openjdk:17-jdk-slim
 
 ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
+WORKDIR /usr/src/app
+
 RUN pwd
 
 #ADD ./sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
