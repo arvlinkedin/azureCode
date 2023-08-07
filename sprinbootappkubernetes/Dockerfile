@@ -27,6 +27,6 @@ ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
 RUN pwd
 
-COPY sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
+COPY --from=build sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
 
 CMD ["java","-jar", "./app.jar"]
