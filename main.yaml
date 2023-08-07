@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: azure/Dockerfile-login@v1
         with:
-          login-server: arvcontainerregistry1.azurecr.io
-          username: arvcontainerregistry1
-          password: aRHJnpnAY6SQCVJBiSjOLfNrrqSZ30tE47cT6zR1Pb+ACRC5VwAp
+          login-server: kubeclusterregistry1.azurecr.io
+          username: kubeclusterregistry1
+          password: hIVOXGQzqTQutrQRtvSXXTmiLfDMTxfNOEH5OgBwtr+ACRC1nqJv
       - run: |
-          docker build . -t arvcontainerregistry1.azurecr.io/knowledgefactory:${{ github.sha }}
-          docker push arvcontainerregistry1.azurecr.io/knowledgefactory:${{ github.sha }}
+          docker build . -t kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:${{ github.sha }}
+          docker push kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:${{ github.sha }}
