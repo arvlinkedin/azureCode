@@ -2,9 +2,9 @@
 #kind: Namespace
 #metadata:
 #  name: default-1691430967978
-spec:
-  finalizers:
-    - kubernetes
+#spec:
+#  finalizers:
+#    - kubernetes
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
