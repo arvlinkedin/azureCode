@@ -2,7 +2,9 @@
 # Build stage
 #
 
-FROM maven:3.6.3-jdk-11-slim AS build
+#FROM maven:3.6.3-jdk-11-slim AS build
+
+FROM maven:3.6.3-openjdk-17-slim AS build
 
 WORKDIR usr/src/app
 
@@ -18,7 +20,8 @@ RUN ls -r -l
 # Package stage
 #
 
-FROM openjdk:11-jre-slim
+FROM openjdk:17-jdk-slim
+#FROM openjdk:11-jre-slim
 
 ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
