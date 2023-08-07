@@ -18,7 +18,7 @@ RUN ls -r -l
 #
 # Package stage
 #
-RUN ls sprinbootappkubernetes/ -r -l
+RUN ls sprinbootappkubernetes/target/ -r -l
 
 FROM openjdk:17-jdk-slim
 #FROM openjdk:11-jre-slim
