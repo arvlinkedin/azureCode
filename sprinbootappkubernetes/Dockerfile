@@ -5,7 +5,7 @@
 FROM maven:3.6.3-jdk-11-slim AS build
 
 RUN pwd
-
+RUN cd usr
 RUN ls -r -l
 
 
