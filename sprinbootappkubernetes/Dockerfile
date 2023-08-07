@@ -15,7 +15,6 @@ RUN mvn -f sprinbootappkubernetes/pom.xml clean package
 
 RUN ls -r -l
 
-
 #
 # Package stage
 #
@@ -24,8 +23,6 @@ FROM openjdk:17-jdk-slim
 #FROM openjdk:11-jre-slim
 
 ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
-
-WORKDIR /sprinbootappkubernetes
 
 COPY --from=build sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
 
