@@ -6,18 +6,15 @@ FROM maven:3.6.3-jdk-11-slim AS build
 
 WORKDIR usr/src/app
 
-COPY . ./
-
-RUN mvn clean package
-
-RUN ls -r -l
-
-
-WORKDIR /sprinbootappkubernetes
+#COPY . ./
 
 COPY ./ ./
 RUN ls -r -l
-RUN mvn clean package
+
+RUN mvn -f ./pom.xml clean package
+
+RUN ls -r -l
+
 
 #
 # Package stage
