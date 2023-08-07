@@ -23,9 +23,10 @@ RUN ls sprinbootappkubernetes/target/ -r -l
 FROM openjdk:17-jdk-slim
 #FROM openjdk:11-jre-slim
 
-ARG JAR_NAME="sprinbootappkubernetes"
-#-0.0.1-SNAPSHOT"
+ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
-COPY --from=build sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
+RUN pwd
+
+COPY sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
 
 CMD ["java","-jar", "./app.jar"]
