@@ -1,25 +1,51 @@
-name: Build a Docker image and Push it to ACR
-kind: Pod
-apiversion: v1
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: azure/Dockerfile-login@v1
-        with:
-          login-server: kubeclusterregistry1.azurecr.io
-          username: kubeclusterregistry1
-          password: hIVOXGQzqTQutrQRtvSXXTmiLfDMTxfNOEH5OgBwtr+ACRC1nqJv
-      - run: |
-          docker build . -t kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:${{ github.sha }}
-          docker push kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:${{ github.sha }}
+#- apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: default-1691430967978
+spec:
+  finalizers:
+    - kubernetes
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: image-workflow-1691378860661
+    namespace: default
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: image-workflow-1691378860661
+    template:
+      metadata:
+        labels:
+          app: image-workflow-1691378860661
+      spec:
+        nodeSelector:
+          kubernetes.io/os: linux
+        containers:
+          - name: image-workflow-1691378860661
+            image: >-
+              kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:9f8f5c78f63a60d65001f0a3c8831764941f33b3
+            ports:
+              - containerPort: 80
+            resources:
+              requests:
+                cpu: '0'
+                memory: '0'
+              limits:
+                cpu: '256'
+                memory: 11400G
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: image-workflow-1691378860661-service
+    namespace: default
+  spec:
+    type: LoadBalancer
+    ports:
+      - targetPort: 80
+        name: port80
+        port: 80
+        protocol: TCP
+    selector:
+      app: image-workflow-1691378860661

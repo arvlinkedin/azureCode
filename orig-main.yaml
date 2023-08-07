@@ -1,4 +1,6 @@
 name: Build a Docker image and Push it to ACR
+kind: Pod
+apiversion: v1
 
 on:
   push:
@@ -15,9 +17,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: azure/Dockerfile-login@v1
         with:
-          login-server: ${{ secrets.ACR_ENDPOINT }}
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+          login-server: kubeclusterregistry1.azurecr.io
+          username: kubeclusterregistry1
+          password: hIVOXGQzqTQutrQRtvSXXTmiLfDMTxfNOEH5OgBwtr+ACRC1nqJv
       - run: |
-          docker build . -t ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
-          docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
+          docker build . -t kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:${{ github.sha }}
+          docker push kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:${{ github.sha }}
