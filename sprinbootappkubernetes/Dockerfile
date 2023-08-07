@@ -4,8 +4,8 @@
 
 FROM maven:3.6.3-jdk-11-slim AS build
 
-#WORKDIR usr/src/app
-#
+WORKDIR /app
+
 #COPY . ./
 
 RUN mvn clean package
@@ -18,7 +18,7 @@ FROM openjdk:11-jre-slim
 
 ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
-#WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY --from=build target/${JAR_NAME}.jar ./app.jar
 
