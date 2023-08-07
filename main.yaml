@@ -4,7 +4,7 @@
     name: default123
   spec:
     finalizers:
-      -kubernetes
+      - kubernetes
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
