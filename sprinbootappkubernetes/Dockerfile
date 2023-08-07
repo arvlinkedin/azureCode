@@ -6,12 +6,10 @@ FROM maven:3.6.3-jdk-11-slim AS build
 
 WORKDIR usr/src/app
 
-#COPY . ./
-
 COPY ./ ./
 RUN ls -r -l
 
-RUN mvn -f ./pom.xml clean package
+RUN mvn -f sprinbootappkubernetes/pom.xml clean package
 
 RUN ls -r -l
 
@@ -26,6 +24,6 @@ ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
 WORKDIR /sprinbootappkubernetes
 
-COPY --from=build target/${JAR_NAME}.jar ./app.jar
+COPY --from=build sprinbootappkubernetes/target/${JAR_NAME}.jar ./app.jar
 
 CMD ["java","-jar", "./app.jar"]
