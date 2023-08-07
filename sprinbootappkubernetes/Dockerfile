@@ -4,7 +4,7 @@
 
 FROM maven:3.6.3-jdk-11-slim AS build
 
-WORKDIR /app
+WORKDIR /sprinbootappkubernetes
 
 #COPY . ./
 
@@ -18,7 +18,7 @@ FROM openjdk:11-jre-slim
 
 ARG JAR_NAME="sprinbootappkubernetes-0.0.1-SNAPSHOT"
 
-WORKDIR /app
+WORKDIR /sprinbootappkubernetes
 
 COPY --from=build target/${JAR_NAME}.jar ./app.jar
 
