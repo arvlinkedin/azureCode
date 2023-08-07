@@ -4,15 +4,19 @@
 
 FROM maven:3.6.3-jdk-11-slim AS build
 
-RUN pwd
-RUN cd usr
+WORKDIR usr/src/app
+
+COPY . ./
+
+RUN mvn clean package
+
 RUN ls -r -l
 
 
 WORKDIR /sprinbootappkubernetes
 
 COPY ./ ./
-
+RUN ls -r -l
 RUN mvn clean package
 
 #
