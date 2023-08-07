@@ -1,4 +1,6 @@
 name: Build a Docker image and Push it to ACR
+kind: Pod
+apiversion: v1
 
 on:
   push:
