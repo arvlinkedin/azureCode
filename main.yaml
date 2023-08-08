@@ -1,51 +1,29 @@
-- apiVersion: v1
-  kind: Namespace
-  metadata:
-    name: default123
-  spec:
-    finalizers:
-      - kubernetes
-- apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: image-workflow-1691378860661
-    namespace: default
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        app: image-workflow-1691378860661
-    template:
-      metadata:
-        labels:
-          app: image-workflow-1691378860661
-      spec:
-        nodeSelector:
-          kubernetes.io/os: linux
-        containers:
-          - name: image-workflow-1691378860661
-            image: >-
-              kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:0b996f41c665d9006043bb4eab360aeb4b97eb63
-            ports:
-              - containerPort: 80
-            resources:
-              requests:
-                cpu: '0'
-                memory: '0'
-              limits:
-                cpu: '256'
-                memory: 11400G
-- apiVersion: v1
-  kind: Service
-  metadata:
-    name: image-workflow-1691378860661-service
-    namespace: default
-  spec:
-    type: LoadBalancer
-    ports:
-      - targetPort: 80
-        name: port80
-        port: 80
-        protocol: TCP
-    selector:
-      app: image-workflow-1691378860661
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-helloworld-aks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-helloworld-aks
+  template:
+    metadata:
+      labels:
+        app: springboot-helloworld-aks
+    spec:
+      containers:
+        - name: springboot-helloworld-aks
+          image: kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:0b996f41c665d9006043bb4eab360aeb4b97eb63
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-helloworld-aks
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: springboot-helloworld-aks
