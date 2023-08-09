@@ -12,7 +12,6 @@ env:
     CONTAINER_NAME: image-workflow-1691601321814
     DEPLOYMENT_MANIFEST_PATH: |
         ./main.yaml
-        ./.github/workflows/34432432.yaml
 jobs:
     buildImage:
         permissions:

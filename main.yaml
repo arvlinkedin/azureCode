@@ -1,29 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot-helloworld-aks
+  name: springboot-helloworld-aks-1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: springboot-helloworld-aks
+      app: springboot-helloworld-aks-1
   template:
     metadata:
       labels:
-        app: springboot-helloworld-aks
+        app: springboot-helloworld-aks-1
     spec:
       containers:
         - name: springboot-helloworld-aks
-          image: kubeclusterregistry1.azurecr.io/image-workflow-1691378860661:0b996f41c665d9006043bb4eab360aeb4b97eb63
+          image: arvkubecontainerregistry1.azurecr.io/image-workflow-1691601321814:c1c2b9fa8814210aebf025db5e9ab7cdb16dda87
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: springboot-helloworld-aks
+  name: springboot-helloworld-aks-1
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: springboot-helloworld-aks
+    app: springboot-helloworld-aks-1
