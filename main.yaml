@@ -13,7 +13,7 @@ spec:
         app: springboot-helloworld-aks-1
     spec:
       containers:
-        - name: springboot-helloworld-aks
+        - name: springboot-helloworld-aks-1
           image: arvkubecontainerregistry1.azurecr.io/image-workflow-1691601321814:c1c2b9fa8814210aebf025db5e9ab7cdb16dda87
 
 ---
