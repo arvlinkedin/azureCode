@@ -26,6 +26,6 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      protocol: tcp
+      protocol: TCP
   selector:
     app: springboot-helloworld-aks-1
